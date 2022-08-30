@@ -7,7 +7,11 @@
 
 ### Feature extraction method
 CTAP (https://sifnos.sfs.uni-tuebingen.de/ctap/)
-* 434 linguistic complexity features have been implemented for Portuguese, not yet live
+* 434 linguistic complexity features have been implemented for Portuguese, 
+  which can be classified as lexical, morphological, monphosyntactic, syntactic and cohesive features
+* The Portuguese features have not yet been deployed
 
 ### Goal
-Identify criterial features in the data for better proficiency and readabily classification
+- Analyze and identify criterial features in the data
+- Describe proficiency levels quantitavely
+- Determine a non-reductionist linguistic complexity rating system for individualized readabily classification
