@@ -9,7 +9,7 @@
 CTAP (https://sifnos.sfs.uni-tuebingen.de/ctap/)
 * 434 linguistic complexity features have been implemented for Portuguese, 
   which can be classified as lexical, morphological, monphosyntactic, syntactic and cohesive features
-* The Portuguese features have not yet been deployed
+* The Portuguese features have not yet been released
 
 ### Goal
 - Analyze and identify criterial features in the data
