@@ -3,7 +3,7 @@
 ### Datasets
 
 - NLI-PT (https://clul.ulisboa.pt/en/recurso/portuguese-native-language-identification-dataset)
-- Readability NLP Portuguese (https://github.com/gazzola/corpus_readability_nlp_portuguese)
+- Córpus de Complexidade Textual para Estágios Escolares do Sistema Educacional Brasileiro (https://github.com/gazzola/corpus_readability_nlp_portuguese)
 
 ### Feature extraction method
 CTAP (https://sifnos.sfs.uni-tuebingen.de/ctap/)
