@@ -1,4 +1,4 @@
-# portuguese-complexity
+# Assessment of Text Readability and Learner Proficiency with Linguistic Complexity: The Case of Portuguese
 
 ### Datasets
 
