@@ -5,16 +5,21 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split, KFold
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 # Uncomment each feature set and model at a time
 
-"""
+
 # All features
-proficiency_df = pd.read_csv("../data/NLI-PT_all_features_new_noNaN.csv", encoding='unicode_escape')
-proficiency_df = proficiency_df.drop('ï»¿', axis=1)
-X = proficiency_df.iloc[:, 1:-1].values
-y = proficiency_df.iloc[:, 444].values
-"""
+df = pd.read_csv("../data/NLI-PT_newest2.csv", encoding='unicode_escape')
+df = df.drop('Unnamed: 0', axis=1)
+df = df.drop('Unnamed: 0.1', axis=1)
+df = df.drop('Morphological Complexity Inflection Feature: Number per word token', axis=1)
+df = df.drop('Morphological Complexity Inflection Feature: Dative Case per Token', axis=1)
+df.dropna(inplace=True)
+
+X = df.iloc[:, :-1].values
+y = df.iloc[:, 466].values
 
 """
 # CFSSubsetEval features
@@ -44,12 +49,12 @@ X = proficiency_df.iloc[:, :-1].values
 y = proficiency_df.iloc[:, 114].values
 """
 
-
+"""
 #Cohesion features
 cohesion_df = pd.read_csv("../data/NLI-PT_cohesion_features.csv", encoding='unicode_escape')
 X = cohesion_df.iloc[:, :-1].values
 y = cohesion_df.iloc[:, 11].values
-
+"""
 
 """
 # Dematto's features
@@ -59,6 +64,7 @@ X = data.iloc[:, 2:-1].values
 y = data.iloc[:, 229].values
 """
 
+"""
 #SVM
 model = SVC()
 
@@ -67,7 +73,7 @@ params = {
     'C': [0.08, 0.1, 1, 10, 50, 100, 1000],
     'gamma': [0.001, 0.01, 0.1, 1, 0.5, 1, 'scale', 'auto']
     }
-
+"""
 
 """
 # Random Forest
@@ -86,15 +92,21 @@ params = {'penalty': ['l1', 'l2'],
           }
 """
 
+# LDA
+model = LinearDiscriminantAnalysis()
+params = {"solver": ['lsqr', 'eigen'],
+          'shrinkage': ['auto', 0.0001, 0.001, 0.01, 0.1, 0.3, 0.5, 0.8, 1]
+          }
+
 # Begin
 X = StandardScaler().fit_transform(X)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, shuffle=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=40, shuffle=True)
 
 kf = KFold(n_splits=10, shuffle=False)
 
 scoring = ['accuracy', 'f1_weighted']
 
-gs = GridSearchCV(model, param_grid=params, cv=kf, scoring=scoring, refit='f1_weighted', return_train_score=True,
+gs = GridSearchCV(model, param_grid=params, cv=kf, scoring='accuracy', refit='f1_weighted', return_train_score=True,
                   verbose=3)
 
 gs.fit(X_train, y_train)
