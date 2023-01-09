@@ -12,6 +12,5 @@ CTAP (https://sifnos.sfs.uni-tuebingen.de/ctap/)
 * The Portuguese features have not yet been released
 
 ### Goal
-- Analyze and identify criterial features in the data
-- Describe proficiency levels quantitavely
-- Determine a non-reductionist linguistic complexity rating system for individualized readabily classification
+- Model proficiency and readability with linguistic complexity measures
+- Verify whether the data corroborates the concept of static levels and criterial features
