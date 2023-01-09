@@ -1,6 +1,6 @@
 # Assessment of Text Readability and Learner Proficiency with Linguistic Complexity: The Case of Portuguese
 
-### Datasets
+### Corpora
 
 - NLI-PT (https://clul.ulisboa.pt/en/recurso/portuguese-native-language-identification-dataset)
 - Córpus de Complexidade Textual para Estágios Escolares do Sistema Educacional Brasileiro (https://github.com/gazzola/corpus_readability_nlp_portuguese)
