@@ -2,6 +2,7 @@ import csv
 import numpy as np
 import pandas as pd
 
+# The corpus was processed in CTAP in 4 separate batches
 df1 = pd.read_csv("../data/EF1_features.csv", encoding= 'unicode_escape')
 EF1 = df1.pivot_table(index='Text_Title', columns='Feature_Name', values='Value', aggfunc='first').reset_index()
 df2 = pd.read_csv("../data/EF2_features.csv", encoding= 'unicode_escape')
@@ -11,8 +12,10 @@ EM = df3.pivot_table(index='Text_Title', columns='Feature_Name', values='Value',
 df4 = pd.read_csv("../data/ES_features.csv", encoding= 'unicode_escape')
 ES = df4.pivot_table(index='Text_Title', columns='Feature_Name', values='Value', aggfunc='first').reset_index()
 
+# COncatenate and pivot data
 frames = EF1, EF2, EM, ES
 df = pd.concat(frames)
+df = df.pivot_table(index='Text_Title', columns='Feature_Name', values='Value', aggfunc='first').reset_index()
 
 # Extract school level according to title of files
 def label_level (row):
@@ -27,4 +30,6 @@ def label_level (row):
 
 # Add school level as feature in df
 df['Level'] = df.apply (lambda row: label_level(row), axis=1)
+
+# Save newly-formatted data
 df.to_csv('../data/School_levels_exploratory.csv', encoding = 'utf-8-sig')
