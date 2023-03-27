@@ -9,7 +9,6 @@
 [CTAP](https://sifnos.sfs.uni-tuebingen.de/ctap/) (X. Chen & Meurers, 2016)
 * [465 linguistic complexity measures](https://docs.google.com/spreadsheets/d/1qCGa7btUa9YBgaleaVihXSM6UW8Dwzo4cz0fc5mUrJM/edit?usp=sharing) have been implemented for Portuguese, 
   belonging to the surface, lexical, morphological, monphological, syntactic and discursive domains
-* The measures for Portuguese analysis have not yet been released
 
 ### Goal
 - Model proficiency and readability with linguistic complexity measures
